@@ -24,5 +24,4 @@ public class RoleResource {
         return this.roleRepository.save(roleModel);
     }
 
-
 }

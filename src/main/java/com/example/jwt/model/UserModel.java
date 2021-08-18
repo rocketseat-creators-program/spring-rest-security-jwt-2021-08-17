@@ -13,7 +13,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name="user")
+@Table(name = "user")
 public class UserModel {
 
     @Id
@@ -26,7 +26,7 @@ public class UserModel {
 
     private String password;
 
-    @Column(name="created_at")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @ManyToMany(fetch = FetchType.EAGER)

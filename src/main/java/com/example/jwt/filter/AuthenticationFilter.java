@@ -15,7 +15,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -38,7 +37,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     }
 
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException {
         User user = (User) authentication.getPrincipal();
 
         String accessToken = JWT.create()
@@ -53,14 +52,15 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
 
         Map<String, String> tokens = new HashMap<>();
-        tokens.put("accessToken", accessToken);
+            tokens.put("accessToken", accessToken);
 
         new ObjectMapper().writeValue(response.getOutputStream(), tokens);
     }
 
     @Override
-    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
+    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException {
         HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
+
         Map<String, Object> errorInfo = new HashMap<>();
             errorInfo.put("status", httpStatus.value());
             errorInfo.put("message", failed.getMessage());
@@ -71,7 +71,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
 
         new ObjectMapper().writeValue(response.getOutputStream(), errorInfo);
-
     }
 
 }

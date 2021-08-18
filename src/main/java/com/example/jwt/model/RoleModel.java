@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name="role")
+@Table(name = "role")
 public class RoleModel {
 
     @Id
@@ -21,7 +21,7 @@ public class RoleModel {
     @Column(unique = true)
     private String name;
 
-    @Column(name="created_at")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     public RoleModel(String name) {

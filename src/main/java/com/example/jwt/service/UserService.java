@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +29,7 @@ public class UserService implements UserDetailsService {
         UserModel user = this.userRepository.findByEmail(email).orElseThrow();
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for(RoleModel role: user.getRoles()) {
+        for (RoleModel role : user.getRoles()) {
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
 
@@ -50,6 +49,5 @@ public class UserService implements UserDetailsService {
 
         this.userRepository.save(user);
     }
-
 
 }
