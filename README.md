@@ -27,11 +27,18 @@ gerenciar nosso fluxo de autenticação e autorização em nossa API RESTful.
 - Autenticação utilizando o token.
 - Autorização de acesso dos recursos da aplicação através dos "ROLE's".
 
-**Para testar todos os recursos da aplicação, utilize a collection do Postman abaixo:**
+### Para testar todos os recursos da aplicação, utilize a collection do Postman abaixo:
 
 - [Postman Collection](https://www.getpostman.com/collections/54c1b61f5116ab1fcc6e)
 
-## Links utilizados em aula
+## Links úteis
 
 - [JWT](https://jwt.io)
 - [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.3&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=jwt&name=spring-rest-security-jwt&description=Demo%20project%20for%20Spring%20Security%20with%20JWT&packageName=com.example.jwt&dependencies=web,devtools,data-jpa,h2,security,lombok)
+
+## Ambiente, recursos e requisitos necessários
+
+- Java 11+
+- Postman ou Insomnia
+- Seu editor de código de preferência (No meu caso, Intellij)
+- Vontade de aprender :D
